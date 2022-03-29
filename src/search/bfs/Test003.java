@@ -1,7 +1,5 @@
 package search.bfs;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 // 7576
@@ -9,17 +7,14 @@ public class Test003 {
 	static int[][] arr;
 	static int n;
 	static int m;
-	static boolean[][] overlap;
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int answer = 0;
+		int answer = 1;
 		n = sc.nextInt();
 		m = sc.nextInt();
 		arr = new int[m][n];
-		overlap = new boolean[m][n];
-		Queue<String> queue = new LinkedList<String>();
 		
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j <arr[i].length; j++) {
@@ -37,33 +32,24 @@ public class Test003 {
 			
 			for (int y = 0; y < arr.length; y++) {
 				for (int x = 0; x < arr[y].length; x++) {
-					if (arr[y][x] == 1 && !overlap[y][x]) {
-						overlap[y][x] = true;
-						queue.add(x + "," + y);
+					if (arr[y][x] == (answer - 1)) {
+						
+						if (x + 1 < arr[y].length && arr[y][x + 1] == 0) {
+							arr[y][x + 1] = answer;
+						}
+						
+						if (x - 1 >= 0 && arr[y][x - 1] == 0) {
+							arr[y][x - 1] = answer;
+						}
+						
+						if (y + 1 < arr.length && arr[y + 1][x] == 0) {
+							arr[y + 1][x] = answer;
+						}
+						
+						if (y - 1 >= 0 && arr[y - 1][x] == 0) {
+							arr[y - 1][x] = answer;
+						}
 					}
-				}
-			}
-			
-			while (!queue.isEmpty()) {
-				String text = queue.poll();
-				
-				int x = Integer.parseInt(text.split(",")[0]);
-				int y = Integer.parseInt(text.split(",")[1]);
-				
-				if (x + 1 < arr[y].length && arr[y][x + 1] == 0) {
-					arr[y][x + 1] = 1;
-				}
-				
-				if (x - 1 >= 0 && arr[y][x - 1] == 0) {
-					arr[y][x - 1] = 1;
-				}
-				
-				if (y + 1 < arr.length && arr[y + 1][x] == 0) {
-					arr[y + 1][x] = 1;
-				}
-				
-				if (y - 1 >= 0 && arr[y - 1][x] == 0) {
-					arr[y - 1][x] = 1;
 				}
 			}
 			
@@ -72,7 +58,7 @@ public class Test003 {
 			}
 		}
 		
-		System.out.println(answer);
+		System.out.println(answer - 1);
 	}
 
 	private static boolean noTomato() {
@@ -100,7 +86,6 @@ public class Test003 {
 				}
 			}
 		}
-		
 		return true;
 	}
 }
