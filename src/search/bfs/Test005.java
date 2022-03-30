@@ -47,7 +47,8 @@ public class Test005 {
 								int nX = dot.x + positionX[j];
 								int nY = dot.y + positionY[j];
 								
-								if (0 <= nX && nX < m && 0 <= nY && nY < n &&
+								if (0 <= nX && nX < m 
+									&& 0 <= nY && nY < n &&
 									arr[nY][nX] == 1 && !overlap[nY][nX]) {
 									overlap[nY][nX] = true;
 									queue.add(new Dot2(nX, nY));
