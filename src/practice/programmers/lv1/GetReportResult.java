@@ -1,4 +1,4 @@
-package programmers.lv1;
+package practice.programmers.lv1;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package sk;
+package exam.sk;
 
 public class Test2 {
 	public int[][] solution(int n, boolean clockwise) {

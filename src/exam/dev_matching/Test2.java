@@ -1,4 +1,4 @@
-package dev_matching;
+package exam.dev_matching;
 
 public class Test2 {
 	public static int solution(int h, int w, int n, String[] board) {

@@ -1,4 +1,4 @@
-package sk;
+package exam.sk;
 
 public class Test1 {
 	public static int solution(int money, int[] costs) {

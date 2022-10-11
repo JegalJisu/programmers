@@ -1,4 +1,4 @@
-package dev_matching.backend;
+package exam.dev_matching.backend;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package impl;
+package practice.impl;
 
 // 10718
 public class Test007 {

@@ -1,4 +1,4 @@
-package search.bfs;
+package practice.search.bfs;
 
 import java.util.Scanner;
 

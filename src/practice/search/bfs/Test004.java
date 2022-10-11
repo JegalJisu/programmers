@@ -1,4 +1,4 @@
-package search.bfs;
+package practice.search.bfs;
 
 import java.util.ArrayList;
 import java.util.Collections;

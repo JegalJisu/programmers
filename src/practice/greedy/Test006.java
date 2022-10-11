@@ -1,4 +1,4 @@
-package greedy;
+package practice.greedy;
 
 import java.util.Scanner;
 
