@@ -7,13 +7,13 @@ public class Test002 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] tar = new int[n];
+        int[] arr = new int[n];
 
         for (int i = 0; i < n; i++) {
-            tar[i] = sc.nextInt();
+            arr[i] = sc.nextInt();
         }
 
-        Arrays.sort(tar);
+        Arrays.sort(arr);
         int m = sc.nextInt();
         int[] results = new int[m];
 
@@ -25,14 +25,14 @@ public class Test002 {
             while (low <= high) {
                 int mid = (low + high) / 2;
 
-                if (num == tar[mid]) {
+                if (num == arr[mid]) {
                     results[i] = 1;
                     break;
                 }
-                else if (num > tar[mid]) {
+                else if (num > arr[mid]) {
                     low = mid + 1;
                 }
-                else if (num < tar[mid]) {
+                else if (num < arr[mid]) {
                     high = mid - 1;
                 }
             }

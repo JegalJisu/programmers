@@ -1,10 +1,6 @@
 package practice.search;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 // 1260
 public class Test001 {
@@ -39,8 +35,8 @@ public class Test001 {
 			}
 		}
 		
-		stack = new Stack<Node>();
-		queue = new LinkedList<Node>();
+		stack = new Stack<>();
+		queue = new LinkedList<>();
 		
 		stack.add(nodes[v - 1]);
 		queue.add(nodes[v - 1]);
@@ -53,12 +49,7 @@ public class Test001 {
 	private static void dfs() {
 		while(!stack.empty()) {
 			Node node = stack.pop();
-			node.adjacent.sort(new Comparator<Node>() {
-				@Override
-				public int compare(Node o1, Node o2) {
-					return o2.value - o1.value;
-				}
-			});
+			node.adjacent.sort((o1, o2) -> o2.value - o1.value);
 			node.adjacent.forEach(nextNode -> {
 				if (nextNode.isFirst) {
 					stack.add(nextNode);
@@ -76,12 +67,7 @@ public class Test001 {
 	private static void bfs() {
 		while(!queue.isEmpty()) {
 			Node node = queue.poll();
-			node.adjacent.sort(new Comparator<Node>() {
-				@Override
-				public int compare(Node o1, Node o2) {
-					return o1.value - o2.value;
-				}
-			});
+			node.adjacent.sort(Comparator.comparingInt(o -> o.value));
 			node.adjacent.forEach(nextNode -> {
 				if (nextNode.isFirst) {
 					queue.add(nextNode);
@@ -111,6 +97,6 @@ class Node {
 	Node(int value) {
 		this.value = value;
 		isFirst = true;
-		adjacent = new LinkedList<Node>();
+		adjacent = new LinkedList<>();
 	}
 }
